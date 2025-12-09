@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'        // Must match Jenkins global tool name
+        jdk 'JDK21'
         maven 'Maven3'
     }
 
     environment {
-        // Add your local NodeJS path to PATH
-        PATH = "C:\\Program Files\\nodejs;${env.PATH}"
+        PATH = "C:\\Program Files\\nodejs;C:\\Users\\<your-user>\\AppData\\Roaming\\npm;${env.PATH}"
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
 
@@ -23,8 +22,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'master',
-                    url: 'https://github.com/Kareemahmed2/CIFireBase.git'
+                git branch: 'master', url: 'https://github.com/Kareemahmed2/CIFireBase.git'
             }
         }
 
