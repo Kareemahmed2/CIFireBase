@@ -20,10 +20,10 @@ pipeline {
             }
         }
 
-        stage('Install Firebase CLI') {
+        stage('Deploy to Firebase Hosting') {
             steps {
-                withEnv(["PATH=C:\\Program Files\\nodejs;%PATH%"]) {
-                    bat 'npm install -g firebase-tools'
+                withEnv(["PATH=C:\\Users\\kokom\\AppData\\Roaming\\npm;%PATH%"]) {
+                    bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
                 }
             }
         }
