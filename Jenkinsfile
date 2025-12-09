@@ -7,6 +7,17 @@ pipeline {
         nodejs 'nodeJs'    // Match NodeJS installation name in Jenkins
     }
 
+    stage('Verify NodeJS') {
+        steps {
+            script {
+                def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
+                echo "NodeJS Home: ${nodeHome}"
+                bat "${nodeHome}\\bin\\node -v"
+                bat "${nodeHome}\\bin\\npm -v"
+            }
+        }
+    }
+
     environment {
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
