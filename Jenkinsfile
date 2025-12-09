@@ -22,9 +22,12 @@ pipeline {
 
         stage('Install Firebase CLI') {
             steps {
-                bat "npm install -g firebase-tools"
+                withNodeJS(nodeJSInstallationName: 'nodeJs') {
+                    bat 'npm install -g firebase-tools'
+                }
             }
         }
+
 
         stage('Build') {
             steps {
