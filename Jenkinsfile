@@ -2,12 +2,13 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'        // Match the name in Jenkins Global Tool Configuration
+        jdk 'JDK21'        // Must match Jenkins global tool name
         maven 'Maven3'
-        nodejs 'NodeJS'    // Match NodeJS installation name in Jenkins
     }
 
     environment {
+        // Add your local NodeJS path to PATH
+        PATH = "C:\\Program Files\\nodejs;${env.PATH}"
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
 
@@ -15,12 +16,8 @@ pipeline {
 
         stage('Verify NodeJS') {
             steps {
-                script {
-                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
-                    echo "NodeJS Home: ${nodeHome}"
-                    bat "${nodeHome}\\bin\\node -v"
-                    bat "${nodeHome}\\bin\\npm -v"
-                }
+                bat 'node -v'
+                bat 'npm -v'
             }
         }
 
@@ -33,24 +30,19 @@ pipeline {
 
         stage('Install Firebase CLI') {
             steps {
-                script {
-                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
-                    withEnv(["PATH=${nodeHome}\\bin;${env.PATH}"]) {
-                        bat 'npm install -g firebase-tools'
-                    }
-                }
+                bat 'npm install -g firebase-tools'
             }
         }
 
         stage('Build') {
             steps {
-                bat "mvn -B clean compile"
+                bat 'mvn -B clean compile'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat "mvn -B test"
+                bat 'mvn -B test'
             }
         }
 
@@ -59,22 +51,17 @@ pipeline {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
             steps {
-                script {
-                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
-                    withEnv(["PATH=${nodeHome}\\bin;${env.PATH}"]) {
-                        bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
-                    }
-                }
+                bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
             }
         }
     }
 
     post {
         success {
-            echo "🎉 Build successful! Tests passed and deployed to Firebase Hosting."
+            echo '🎉 Build successful! Tests passed and deployed to Firebase Hosting.'
         }
         failure {
-            echo "❌ Build failed. Deployment skipped."
+            echo '❌ Build failed. Deployment skipped.'
         }
     }
 }
