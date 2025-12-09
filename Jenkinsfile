@@ -4,7 +4,7 @@ pipeline {
     tools {
         jdk 'JDK21'        // Make sure this matches the name in Global Tool Configuration
         maven 'Maven3'     // Same for Maven installation
-        nodejs 'NodeJs'  // Node version for Firebase CLI
+        nodejs 'nodeJs'  // Node version for Firebase CLI
     }
 
     environment {
