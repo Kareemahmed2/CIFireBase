@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a283ba24-4d32-44bf-9193-f43674c548a0" name="Changes" comment="" />
+    <list default="true" id="a283ba24-4d32-44bf-9193-f43674c548a0" name="Changes" comment="Workflow Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Backend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AddTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +23,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Kareemahmed2"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="dea31a94-16c4-4a9a-b844-15aa6dbc47bd" />
+        <option name="url" value="https://github.com/Kareemahmed2/CIFireBase.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -58,7 +76,7 @@
       <updated>1765274659633</updated>
       <workItem from="1765274660672" duration="1965000" />
       <workItem from="1765276662761" duration="2000" />
-      <workItem from="1765276732752" duration="4066000" />
+      <workItem from="1765276732752" duration="6316000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <option name="closed" value="true" />
@@ -148,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765299858222</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Workflow Commit">
+      <option name="closed" value="true" />
+      <created>1765300366411</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765300366411</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
