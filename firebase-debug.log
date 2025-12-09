@@ -1,0 +1,86 @@
+[debug] [2025-12-09T10:34:53.349Z] ----------------------------------------------------------------------
+[debug] [2025-12-09T10:34:53.356Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kokom\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-12-09T10:34:53.357Z] CLI Version:   14.27.0
+[debug] [2025-12-09T10:34:53.357Z] Platform:      win32
+[debug] [2025-12-09T10:34:53.358Z] Node Version:  v20.18.0
+[debug] [2025-12-09T10:34:53.358Z] Time:          Tue Dec 09 2025 12:34:53 GMT+0200 (Eastern European Standard Time)
+[debug] [2025-12-09T10:34:53.358Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-12-09T10:34:53.799Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-12-09T10:34:53.800Z] > authorizing via signed-in user (ka.mahrous@gmail.com)
+[debug] [2025-12-09T10:34:53.801Z] [iam] checking project cifirebase-797f2 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-12-09T10:34:53.802Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:53.802Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:53.804Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cifirebase-797f2:testIamPermissions [none]
+[debug] [2025-12-09T10:34:53.804Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cifirebase-797f2:testIamPermissions x-goog-quota-user=projects/cifirebase-797f2
+[debug] [2025-12-09T10:34:53.804Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cifirebase-797f2:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-12-09T10:34:54.850Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cifirebase-797f2:testIamPermissions 200
+[debug] [2025-12-09T10:34:54.850Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cifirebase-797f2:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-12-09T10:34:54.852Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:54.852Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:54.853Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cifirebase-797f2 [none]
+[debug] [2025-12-09T10:34:55.269Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cifirebase-797f2 200
+[debug] [2025-12-09T10:34:55.269Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cifirebase-797f2 {"projectId":"cifirebase-797f2","projectNumber":"8524028294","displayName":"CIFirebase","name":"projects/cifirebase-797f2","resources":{"hostingSite":"cifirebase-797f2"},"state":"ACTIVE","etag":"1_dc518925-89d5-4fd1-8183-009a725d3cc5"}
+[info] 
+[info] === Deploying to 'cifirebase-797f2'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-12-09T10:34:55.286Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:55.286Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:55.287Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions [none]
+[debug] [2025-12-09T10:34:55.287Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-12-09T10:34:56.455Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions 200
+[debug] [2025-12-09T10:34:56.455Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions {"name":"projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[cifirebase-797f2]: beginning deploy... 
+[info] i  hosting[cifirebase-797f2]: found 2 files in Frontend 
+[debug] [2025-12-09T10:34:56.485Z] [hosting] uploading with 200 concurrency
+[debug] [2025-12-09T10:34:56.489Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:56.489Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:56.491Z] [hosting] hash cache [RnJvbnRlbmQ] stored for 2 files
+[debug] [2025-12-09T10:34:56.492Z] [hosting][hash queue][FINAL] {"max":1,"min":0,"avg":0,"active":0,"complete":2,"success":2,"errored":0,"retried":0,"total":2,"elapsed":4}
+[debug] [2025-12-09T10:34:56.492Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67:populateFiles [none]
+[debug] [2025-12-09T10:34:56.492Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67:populateFiles {"files":{"/index.html":"35ba650e3ae690d1cb4461a0ce779ae33cdeaa4a15d8469a51026179523ae45c","/404.html":"762bf484ba67404bd1a3b181546ea28d60dfddf18e9dd4795d8d25bcf3c1a890"}}
+[debug] [2025-12-09T10:34:56.770Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67:populateFiles 200
+[debug] [2025-12-09T10:34:56.770Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67:populateFiles {"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/cifirebase-797f2/versions/7954a8146b5caa67/files"}
+[debug] [2025-12-09T10:34:56.771Z] [hosting][populate queue][FINAL] {"max":282,"min":282,"avg":282,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":282}
+[debug] [2025-12-09T10:34:56.771Z] [hosting] uploads queued: 0
+[debug] [2025-12-09T10:34:56.772Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":0,"complete":0,"success":0,"errored":0,"retried":0,"total":0,"elapsed":1765276496772}
+[info] +  hosting[cifirebase-797f2]: file upload complete 
+[debug] [2025-12-09T10:34:56.774Z] [hosting] deploy completed after 317ms
+[debug] [2025-12-09T10:34:56.775Z] [
+  {
+    "config": {
+      "public": "Frontend",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "cifirebase-797f2"
+    },
+    "version": "projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67"
+  }
+]
+[info] i  hosting[cifirebase-797f2]: finalizing version... 
+[debug] [2025-12-09T10:34:56.778Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:56.778Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:56.780Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions/7954a8146b5caa67 updateMask=status%2Cconfig
+[debug] [2025-12-09T10:34:56.780Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions/7954a8146b5caa67 {"status":"FINALIZED","config":{}}
+[debug] [2025-12-09T10:34:57.042Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions/7954a8146b5caa67 200
+[debug] [2025-12-09T10:34:57.042Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/versions/7954a8146b5caa67 {"name":"projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-12-09T10:34:55.083607Z","createUser":{"email":"ka.mahrous@gmail.com"},"finalizeTime":"2025-12-09T10:34:55.855267Z","finalizeUser":{"email":"ka.mahrous@gmail.com"}}
+[debug] [2025-12-09T10:34:57.043Z] [hosting] finalized version for cifirebase-797f2:[object Object]
+[info] +  hosting[cifirebase-797f2]: version finalized 
+[info] i  hosting[cifirebase-797f2]: releasing new version... 
+[debug] [2025-12-09T10:34:57.044Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:57.045Z] Checked if tokens are valid: true, expires at: 1765279352574
+[debug] [2025-12-09T10:34:57.045Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/channels/live/releases versionName=projects%2F8524028294%2Fsites%2Fcifirebase-797f2%2Fversions%2F7954a8146b5caa67
+[debug] [2025-12-09T10:34:57.045Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/channels/live/releases {}
+[debug] [2025-12-09T10:34:57.362Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/channels/live/releases 200
+[debug] [2025-12-09T10:34:57.362Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/cifirebase-797f2/channels/live/releases {"name":"projects/8524028294/sites/cifirebase-797f2/channels/live/releases/1765276495627000","version":{"name":"projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-12-09T10:34:55.083607Z","createUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"},"finalizeTime":"2025-12-09T10:34:55.855267Z","finalizeUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"}},"type":"DEPLOY","releaseTime":"2025-12-09T10:34:55.627Z","releaseUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"}}
+[debug] [2025-12-09T10:34:57.362Z] [hosting] release: {"name":"projects/8524028294/sites/cifirebase-797f2/channels/live/releases/1765276495627000","version":{"name":"projects/8524028294/sites/cifirebase-797f2/versions/7954a8146b5caa67","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2025-12-09T10:34:55.083607Z","createUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"},"finalizeTime":"2025-12-09T10:34:55.855267Z","finalizeUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"}},"type":"DEPLOY","releaseTime":"2025-12-09T10:34:55.627Z","releaseUser":{"email":"ka.mahrous@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/ACg8ocKYVoKbxgg-eR69Vo5DF9m5Cpa-I1mEv3BryJ53YP3wbQRANiM"}}
+[info] +  hosting[cifirebase-797f2]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/cifirebase-797f2/overview
+[info] Hosting URL: https://cifirebase-797f2.web.app
