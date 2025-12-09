@@ -4,7 +4,7 @@ pipeline {
     tools {
         jdk 'JDK21'        // Match the name in Jenkins Global Tool Configuration
         maven 'Maven3'
-        nodejs 'nodeJs'    // Match NodeJS installation name in Jenkins
+        nodejs 'NodeJS'    // Match NodeJS installation name in Jenkins
     }
 
     environment {
