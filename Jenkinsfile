@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'        // Make sure this matches the name in Global Tool Configuration
-        maven 'Maven3'     // Same for Maven installation
-        nodejs 'nodeJs'  // Node version for Firebase CLI
+        jdk 'JDK21'        // Must match name in Jenkins global tools
+        maven 'Maven3'
+        nodejs 'nodeJs'
     }
 
     environment {
-        FIREBASE_TOKEN = credentials('FIREBASE_TOKEN') // Your Firebase CI token from credentials
+        FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
 
     stages {
@@ -22,19 +22,19 @@ pipeline {
 
         stage('Install Firebase CLI') {
             steps {
-                sh 'npm install -g firebase-tools'
+                bat "npm install -g firebase-tools"
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn -B clean compile'
+                bat "mvn -B clean compile"
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'mvn -B test'
+                bat "mvn -B test"
             }
         }
 
@@ -43,17 +43,17 @@ pipeline {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
             steps {
-                sh 'firebase deploy --only hosting'
+                bat "firebase deploy --only hosting --token %FIREBASE_TOKEN%"
             }
         }
     }
 
     post {
         success {
-            echo '🎉 Build successful! Deployed to Firebase Hosting.'
+            echo "🎉 Build successful! Tests passed. Deployed to Firebase Hosting."
         }
         failure {
-            echo '❌ Build failed. Tests did NOT pass. Deployment skipped.'
+            echo "❌ Build failed. Deployment skipped."
         }
     }
 }
