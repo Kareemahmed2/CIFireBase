@@ -7,22 +7,22 @@ pipeline {
         nodejs 'nodeJs'    // Match NodeJS installation name in Jenkins
     }
 
-    stage('Verify NodeJS') {
-        steps {
-            script {
-                def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
-                echo "NodeJS Home: ${nodeHome}"
-                bat "${nodeHome}\\bin\\node -v"
-                bat "${nodeHome}\\bin\\npm -v"
-            }
-        }
-    }
-
     environment {
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
 
     stages {
+
+        stage('Verify NodeJS') {
+            steps {
+                script {
+                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
+                    echo "NodeJS Home: ${nodeHome}"
+                    bat "${nodeHome}\\bin\\node -v"
+                    bat "${nodeHome}\\bin\\npm -v"
+                }
+            }
+        }
 
         stage('Checkout Code') {
             steps {
@@ -34,7 +34,6 @@ pipeline {
         stage('Install Firebase CLI') {
             steps {
                 script {
-                    // Get NodeJS path from Jenkins
                     def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
                     withEnv(["PATH=${nodeHome}\\bin;${env.PATH}"]) {
                         bat 'npm install -g firebase-tools'
