@@ -1,13 +1,12 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JDK21'
-        maven 'Maven3'
-    }
-
     environment {
-        PATH = "C:\\Program Files\\nodejs;C:\\Users\\<your-user>\\AppData\\Roaming\\npm;${env.PATH}"
+        // Add NodeJS and global npm binaries to PATH
+        NODEJS_HOME = "C:\\Program Files\\nodejs"
+        NPM_GLOBAL = "${env.HOME}\\AppData\\Roaming\\npm"
+        PATH = "${NODEJS_HOME};${NPM_GLOBAL};${env.PATH}"
+
         FIREBASE_TOKEN = credentials('FIREBASE_TOKEN')
     }
 
@@ -49,6 +48,7 @@ pipeline {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
             steps {
+                // Now PATH includes global npm, so firebase command will work
                 bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
             }
         }
