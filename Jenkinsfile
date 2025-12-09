@@ -41,7 +41,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Firebase Hosting') {
+        stage('Check and Deploy to Firebase Hosting') {
             when {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
