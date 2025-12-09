@@ -22,7 +22,7 @@ pipeline {
 
         stage('Install Firebase CLI') {
             steps {
-                withNodeJS(nodeJSInstallationName: 'nodeJs') {
+                withEnv(["PATH=C:\\Program Files\\nodejs;%PATH%"]) {
                     bat 'npm install -g firebase-tools'
                 }
             }
