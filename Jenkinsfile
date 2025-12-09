@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     tools {
-        jdk 'JDK21'        // Must match name in Jenkins global tools
+        jdk 'JDK21'        // Match the name in Jenkins Global Tool Configuration
         maven 'Maven3'
-        nodejs 'nodeJs'
+        nodejs 'nodeJs'    // Match NodeJS installation name in Jenkins
     }
 
     environment {
@@ -20,14 +20,17 @@ pipeline {
             }
         }
 
-        stage('Deploy to Firebase Hosting') {
+        stage('Install Firebase CLI') {
             steps {
-                withEnv(["PATH=C:\\Users\\kokom\\AppData\\Roaming\\npm;%PATH%"]) {
-                    bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
+                script {
+                    // Get NodeJS path from Jenkins
+                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
+                    withEnv(["PATH=${nodeHome}\\bin;${env.PATH}"]) {
+                        bat 'npm install -g firebase-tools'
+                    }
                 }
             }
         }
-
 
         stage('Build') {
             steps {
@@ -41,19 +44,24 @@ pipeline {
             }
         }
 
-        stage('Check and Deploy to Firebase Hosting') {
+        stage('Deploy to Firebase Hosting') {
             when {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
             steps {
-                bat "firebase deploy --only hosting --token %FIREBASE_TOKEN%"
+                script {
+                    def nodeHome = tool name: 'nodeJs', type: 'NodeJS'
+                    withEnv(["PATH=${nodeHome}\\bin;${env.PATH}"]) {
+                        bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
+                    }
+                }
             }
         }
     }
 
     post {
         success {
-            echo "🎉 Build successful! Tests passed. Deployed to Firebase Hosting."
+            echo "🎉 Build successful! Tests passed and deployed to Firebase Hosting."
         }
         failure {
             echo "❌ Build failed. Deployment skipped."
