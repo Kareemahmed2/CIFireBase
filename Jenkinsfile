@@ -48,18 +48,8 @@ pipeline {
                 expression { currentBuild.currentResult == 'SUCCESS' }
             }
             steps {
-                // Now PATH includes global npm, so firebase command will work
                 bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
             }
-        }
-    }
-
-    post {
-        success {
-            echo '🎉 Build successful! Tests passed and deployed to Firebase Hosting.'
-        }
-        failure {
-            echo '❌ Build failed. Deployment skipped.'
         }
     }
 }
