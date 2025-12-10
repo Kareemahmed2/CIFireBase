@@ -42,14 +42,5 @@ pipeline {
                 bat 'mvn -B test'
             }
         }
-
-        stage('Deploy to Firebase Hosting') {
-            when {
-                expression { currentBuild.currentResult == 'SUCCESS' }
-            }
-            steps {
-                bat 'firebase deploy --only hosting --token %FIREBASE_TOKEN%'
-            }
-        }
     }
 }
